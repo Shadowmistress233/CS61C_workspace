@@ -3,69 +3,69 @@
 #include <string.h>
 
 int main() {
-  // TODO: Create space to store the string "hello"
-  // Hint: how many bytes do we need to store this string?
-  ______ hello_str[______];
+  // TODO: 创建用于存储字符串 "hello" 的空间
+  // 提示：存储这个字符串我们需要多少字节？
+  char hello_str[6];
 
-  // TODO: store the characters one at a time
-  // Hint: don't forget the null terminator
-  // Note: we use single quotes for characters
-  ______ = 'h';
-  ______ = 'e';
-  ______ = 'l';
-  ______ = 'l';
-  ______ = 'o';
+  // TODO: 逐个存入每个字符
+  // 提示：别忘了空字符结尾（null terminator）
+  // 注意：字符使用单引号
+  hello_str[0] = 'h';
+  hello_str[1] = 'e';
+  hello_str[2] = 'l';
+  hello_str[3] = 'l';
+  hello_str[4] = 'o';
 
-  // TODO: store the null terminator
-  ______ = ______;
+  // TODO: 存入空字符结尾（null terminator）
+  hello_str[5] = '\0';
 
-  // Prints hello_str
+  // 打印 hello_str
   printf("prints hello: %s\n", hello_str);
 
-  // TODO: print the length of hello_str
-  printf("length of hello: %lu\n", ______(hello_str));
+  // TODO: 打印 hello_str 的长度
+  printf("length of hello: %lu\n", strlen(hello_str));
 
-  // TODO: create space to store the string "world"
-  ______ world_str[______];
+  // TODO: 创建用于存储字符串 "world" 的空间
+  char world_str[6];
 
-  // TODO: fill in the type
-  // Note: this automatically stores the string "world" in static memory
-  //       but static memory is immutable, so you may need to copy it
-  //       to the stack or the heap
-  ______ static_world_str = "world";
+  // TODO: 填入类型
+  // 注意：这会自动将字符串 "world" 存储在静态内存区
+  //       但静态内存是不可变的，因此你可能需要将其复制
+  //       到栈（stack）或堆（heap）
+  char* static_world_str = "world";
 
-  // TODO: use strcpy and static_world_str to store "world" into world_str
-  // Hint: strcpy takes two arguments:
-  //       first the destination, then the source
-  ______(______, ______);
+  // TODO: 使用 strcpy 和 static_world_str 将 "world" 存入 world_str
+  // 提示：strcpy 接受两个参数：
+  //       第一个是目标地址，第二个是源地址
+  strcpy(world_str, static_world_str);
 
-  // Prints world_str
+  // 打印 world_str
   printf("prints world: %s\n", world_str);
 
-  // Prints the address of world_str
+  // 打印 world_str 的地址
   printf("address of world_str: %p\n", world_str);
 
-  // TODO: compute the address of the letter r using world_str
-  ______ ptr_to_r = ____________;
+  // TODO: 使用 world_str 计算字母 'r' 的地址
+  char* ptr_to_r = world_str + 2;
   printf("address of 'r': %p\n", ptr_to_r);
 
-  // TODO: create space to store the string "hello world"
-  ______ hello_world_str[______];
+  // TODO: 创建用于存储字符串 "hello world" 的空间
+  char hello_world_str[12];
 
-  // TODO: use strcpy and hello_str to store
-  //       the string "hello" into hello_world_str
-  ______(______, ______);
+  // TODO: 使用 strcpy 和 hello_str 将
+  //       字符串 "hello" 存入 hello_world_str
+  strcpy(hello_world_str, hello_str);
 
-  // TODO: store the space character in "hello world" at the correct index
-  // Note: a space is not the same as null terminator
-  //       a null terminator is represented by '\0'
-  ______ = ' ';
+  // TODO: 在正确索引处存入 "hello world" 的空格字符
+  // 注意：空格与空字符结尾（null terminator）不同
+  //       空字符结尾由 '\0' 表示
+  *(hello_world_str + 5) = ' ';
 
-  // TODO: use strcpy, pointer arithmetic, and world_str to store
-  //       the string "world" into hello_world_str
-  ______(______ + ______, ______);
+  // TODO: 使用 strcpy、指针运算以及 world_str 将
+  //       字符串 "world" 存入 hello_world_str
+  strcpy(hello_world_str + 6, world_str);
 
-  // Prints hello_world_str
+  // 打印 hello_world_str
   printf("prints hello world: %s\n", hello_world_str);
 
   return 0;
